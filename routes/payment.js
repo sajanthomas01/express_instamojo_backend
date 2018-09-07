@@ -16,13 +16,12 @@ router.post('/', function (req, res) {
         res.status(400).json({ success: false, message: 'Needed fields mismatch.', statusCode: 400 });
     } else {
 
-        var headers = { 'X-Api-Key': 'test_f73ff845e7ed31e197ea3bacb91', 'X-Auth-Token': 'test_f20029c6f0a6c905bf7537efb04' }
-        //var headers = { 'X-Api-Key': 'test_xx', 'X-Auth-Token': 'test_fxx'  }
+        var headers = { 'X-Api-Key': 'test_xx', 'X-Auth-Token': 'test_fxx'  }
         var payload = {
             purpose: req.body.purpose,
             amount: req.body.amount,
             buyer_name: req.body.buyer_name,
-            redirect_url: 'http://example.com',
+            redirect_url: 'http://example.com/',
             send_email: true,
             email: req.body.email,
             allow_repeated_payments: false
