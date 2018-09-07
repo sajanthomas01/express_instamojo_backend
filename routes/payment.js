@@ -3,6 +3,10 @@ var router = express.Router();
 
 var request = require('request');
 
+router.get('/', function (req, res) {
+    res.json({error:'error'})
+});
+
 router.post('/', function (req, res) {
 
 
@@ -12,18 +16,18 @@ router.post('/', function (req, res) {
         res.status(400).json({ success: false, message: 'Needed fields mismatch.', statusCode: 400 });
     } else {
 
-
-        var headers = { 'X-Api-Key': 'test_xx', 'X-Auth-Token': 'test_fxx'  }
+        var headers = { 'X-Api-Key': 'test_f73ff845e7ed31e197ea3bacb91', 'X-Auth-Token': 'test_f20029c6f0a6c905bf7537efb04' }
+        //var headers = { 'X-Api-Key': 'test_xx', 'X-Auth-Token': 'test_fxx'  }
         var payload = {
             purpose: req.body.purpose,
             amount: req.body.amount,
             buyer_name: req.body.buyer_name,
-            redirect_url: req.body.redirect_url,
-            send_email: req.body.send_email,
+            redirect_url: 'http://example.com',
+            send_email: true,
             email: req.body.email,
             allow_repeated_payments: false
         }
-
+        console.log(payload);
         request.post('https://test.instamojo.com/api/1.1/payment-requests/', { form: payload, headers: headers }, function (error, response, body) {
             if (!error && response.statusCode == 201) {
                 let data = JSON.parse(response.body)
@@ -31,6 +35,8 @@ router.post('/', function (req, res) {
 
                 res.status(200).json({ success: true, message: 'Initiating payment gateway.', statusCode: 200, url : data.payment_request.longurl});
 
+            }else{
+                console.log(error)
             }
         })
 
