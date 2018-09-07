@@ -13,7 +13,7 @@ router.post('/', function (req, res) {
     } else {
 
 
-        var headers = { 'X-Api-Key': 'test_f73ff845e7ed31e197ea3bacb91', 'X-Auth-Token': 'test_f20029c6f0a6c905bf7537efb04'  }
+        var headers = { 'X-Api-Key': 'test_xx', 'X-Auth-Token': 'test_fxx'  }
         var payload = {
             purpose: req.body.purpose,
             amount: req.body.amount,
