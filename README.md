@@ -12,3 +12,5 @@ Before running the project make an account in test.instamojo.com and replace the
 #### run nodemon app.js
 
 #### now server will be running in port 8089
+
+https://medium.com/@sajanthomas01/integrate-instamojo-payment-gateway-in-react-native-app-973aeb2b9936
